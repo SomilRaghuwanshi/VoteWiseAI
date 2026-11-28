@@ -16,6 +16,7 @@ export function App() {
           <Route path="/candidates" element={<Candidate />} />
           <Route path="/candidates/:id" element={<Candidate />} />
           <Route path="/candidate" element={<Candidate />} />
+          <Route path="/candidate/:id" element={<Candidate />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -17,7 +17,8 @@ import { SearchBar } from "@/components/SearchBar";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CANDIDATES } from "@/data/candidates";
+import { CANDIDATES, CandidateProfile } from "@/data/candidates";
+import { MOCK_CANDIDATES } from "@/data/mockCandidates";
 import { formatAssetCompact } from "@/lib/utils";
 
 /**
@@ -27,8 +28,12 @@ export const Candidate: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
 
-  const selected = useMemo(
-    () => (id ? CANDIDATES.find((c) => c.id === id) : undefined),
+  const selected = useMemo<CandidateProfile | undefined>(
+    () =>
+      id
+        ? CANDIDATES.find((c) => c.id === id) ||
+          MOCK_CANDIDATES.find((c) => c.id === id)
+        : undefined,
     [id]
   );
 

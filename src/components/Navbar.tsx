@@ -59,7 +59,7 @@ export const Navbar: React.FC = () => {
         {/* Right Action: GitHub button + Mobile Toggle */}
         <div className="flex items-center gap-2.5">
           <a
-            href="https://github.com"
+            href="https://github.com/SomilRaghuwanshi"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden items-center gap-2 rounded-xl border border-white/12 bg-white/[0.04] px-3.5 py-2 text-xs font-medium text-slate-200 transition hover:border-indigo-400/40 hover:bg-white/[0.08] hover:text-white sm:inline-flex"
