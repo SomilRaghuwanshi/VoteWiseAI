@@ -17,6 +17,7 @@ import { SearchBar } from "@/components/SearchBar";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CandidateAnalyticsDashboard } from "@/components/analytics/CandidateAnalyticsDashboard";
 import { CANDIDATES, CandidateProfile } from "@/data/candidates";
 import { MOCK_CANDIDATES } from "@/data/mockCandidates";
 import { formatAssetCompact } from "@/lib/utils";
@@ -141,11 +142,6 @@ export const Candidate: React.FC = () => {
   }
 
   // Detailed Candidate Dossier View
-  const maxYearAsset = Math.max(
-    ...selected.assetHistory.map((h) => h.value),
-    1
-  );
-
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <Link
@@ -227,7 +223,7 @@ export const Candidate: React.FC = () => {
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="w-full justify-start sm:w-auto">
           <TabsTrigger value="overview">AI Overview</TabsTrigger>
-          <TabsTrigger value="assets">Asset Timeline</TabsTrigger>
+          <TabsTrigger value="assets">Interactive Analytics</TabsTrigger>
           <TabsTrigger value="history">Election History</TabsTrigger>
         </TabsList>
 
@@ -255,33 +251,7 @@ export const Candidate: React.FC = () => {
         </TabsContent>
 
         <TabsContent value="assets">
-          <GlassCard hoverGlow={false}>
-            <h3 className="mb-5 font-display text-lg font-semibold text-white">
-              Declared Net Asset Progression (Placeholder USD Equivalent)
-            </h3>
-            <div className="space-y-4">
-              {selected.assetHistory.map((item) => (
-                <div key={item.year} className="space-y-1.5">
-                  <div className="flex justify-between text-xs">
-                    <span className="font-medium text-slate-300">
-                      {item.year} Filing
-                    </span>
-                    <span className="font-semibold text-white">
-                      {formatAssetCompact(item.value)}
-                    </span>
-                  </div>
-                  <div className="h-3 w-full overflow-hidden rounded-full bg-white/[0.06]">
-                    <div
-                      style={{
-                        width: `${Math.round((item.value / maxYearAsset) * 100)}%`,
-                      }}
-                      className={`h-full rounded-full bg-gradient-to-r ${selected.accentGradient}`}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </GlassCard>
+          <CandidateAnalyticsDashboard candidate={selected} />
         </TabsContent>
 
         <TabsContent value="history">
