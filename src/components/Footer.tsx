@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Github, Sparkles } from "lucide-react";
+import { Github } from "lucide-react";
+import logoImg from "@/assets/logo.png";
 
 /**
  * Clean, minimal modern footer with brand mark and navigation links.
@@ -11,13 +12,16 @@ export const Footer: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-center">
           <div className="max-w-sm">
-            <Link to="/" className="inline-flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 via-violet-500 to-blue-500">
-                <Sparkles className="h-4 w-4 text-white" />
-              </div>
-              <span className="font-display text-base font-bold tracking-tight text-white">
-                VoteWise AI
-              </span>
+            <Link
+              to="/"
+              className="inline-flex items-center focus-visible:outline-none"
+              aria-label="VoteWise AI Home"
+            >
+              <img
+                src={logoImg}
+                alt="VoteWise AI"
+                className="h-8 w-auto object-contain"
+              />
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-slate-400">
               AI-powered candidate comparison using public election affidavit

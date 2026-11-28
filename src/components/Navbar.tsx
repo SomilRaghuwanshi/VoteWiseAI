@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { Github, Menu, Sparkles, X } from "lucide-react";
+import { Github, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoImg from "@/assets/logo.png";
 
 const navItems = [
   { label: "Home", to: "/" },
@@ -24,19 +25,14 @@ export const Navbar: React.FC = () => {
         {/* Brand Logo */}
         <Link
           to="/"
-          className="group flex items-center gap-2.5 focus-visible:outline-none"
+          className="group flex items-center focus-visible:outline-none"
+          aria-label="VoteWise AI Home"
         >
-          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 via-violet-500 to-blue-500 shadow-glow transition-transform duration-300 group-hover:scale-105">
-            <Sparkles className="h-4 w-4 text-white" />
-          </div>
-          <div className="flex items-baseline gap-1.5">
-            <span className="font-display text-lg font-bold tracking-tight text-white">
-              VoteWise
-            </span>
-            <span className="rounded-md border border-indigo-400/30 bg-indigo-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-indigo-300">
-              AI
-            </span>
-          </div>
+          <img
+            src={logoImg}
+            alt="VoteWise AI"
+            className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105 sm:h-9"
+          />
         </Link>
 
         {/* Desktop Links */}
